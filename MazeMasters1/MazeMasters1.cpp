@@ -17,6 +17,7 @@ void displayMenu()
 	cin >> a;
 
 }
+
 bool validMove(char maze[][WIDTH], int newX, int newY)
 {
 	// Checks if we are going off the maze edges
@@ -36,6 +37,26 @@ bool validMove(char maze[][WIDTH], int newX, int newY)
 	}
 	return true;
 }
+// Make the move on the maze to move to a new coordinate
+// I passed curX and curY by reference so they are changed to
+// the new coordinates. I assume the move coordinates are valid.
+// This returns true if we move onto the exit, false otherwise.
+
+bool move(char maze[][WIDTH], int& curX, int& curY, int newX, int newY)
+{
+	bool foundExit = false;
+	if (maze[newY][newX] == 'E') // Check for exit
+	{
+		foundExit = true;
+	}
+	cout << endl;
+	cout << "Congratulations, you have won our maze game!" << endl;
+	curX = newX; // Update location
+	curY = newY;
+	return foundExit;
+
+}
+// Display the maze in ASCII
 void printMaze(char maze[][WIDTH], int curx, int cury)
 {
 	for (int i = 0; i < HEIGHT; i++)
