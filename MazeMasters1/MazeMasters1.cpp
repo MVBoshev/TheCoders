@@ -44,9 +44,9 @@ bool validMove(char maze[][WIDTH], int newX, int newY)
 	return true;
 }
 // Make the move on the maze to move to a new coordinate
-// I passed curX and curY by reference so they are changed to
-// the new coordinates. I assume the move coordinates are valid.
-// This returns true if we move onto the exit, false otherwise.
+// curX and curY are passed by reference so they are changed to
+// the new coordinates. The move coordinates are valid.
+// This returns true if we move on the exit and otherwise false.
 
 bool move(char maze[][WIDTH], int& curX, int& curY, int newX, int newY)
 {
