@@ -17,6 +17,25 @@ void displayMenu()
 	cin >> a;
 
 }
+bool validMove(char maze[][WIDTH], int newX, int newY)
+{
+	// Checks if we are going off the maze edges
+	if (newX < 0 || newX >= WIDTH)
+	{
+		return false;
+	}
+	if (newY < 0 || newY >= HEIGHT)
+	{
+		return false;
+
+	}
+	// Checks if we hit a wall
+	if (maze[newY][newX] == '#')
+	{
+		return false;
+	}
+	return true;
+}
 void printMaze(char maze[][WIDTH], int curx, int cury)
 {
 	for (int i = 0; i < HEIGHT; i++)
