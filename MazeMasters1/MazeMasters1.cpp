@@ -116,10 +116,16 @@ int main()
 
 		switch (c)
 		{
-		case 'w':
+		  case 'w':
 			if (validMove(maze, x, y - 1))
 			{
 				foundExit = move(maze, x, y, x, y - 1);
+			}
+			break;
+		  case 'a':
+			if (validMove(maze, x - 1, y))
+			{
+				foundExit = move(maze, x, y, x - 1, y);
 			}
 			break;
 		}
