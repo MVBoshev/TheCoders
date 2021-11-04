@@ -134,6 +134,12 @@ int main()
 				  foundExit = move(maze, x, y, x, y + 1);
 			  }
 			  break;
+		  case 'd':
+			  if (validMove(maze, x + 1, y))
+			  {
+				  foundExit = move(maze, x, y, x + 1, y);
+
+			  }
 		}
 	}
 }
