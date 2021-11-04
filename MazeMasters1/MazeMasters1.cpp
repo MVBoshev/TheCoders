@@ -108,6 +108,6 @@ int main()
 
 		printMaze(maze, x, y);
 		cout << endl;
-
+		cout << "Use WASD to move." << endl;
 	}
 }
