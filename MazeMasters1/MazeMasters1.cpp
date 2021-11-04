@@ -113,5 +113,15 @@ int main()
 		char c;
 		cin >> c;
 		c = tolower(c);
+
+		switch (c)
+		{
+		case 'w':
+			if (validMove(maze, x, y - 1))
+			{
+				foundExit = move(maze, x, y, x, y - 1);
+			}
+			break;
+		}
 	}
 }
