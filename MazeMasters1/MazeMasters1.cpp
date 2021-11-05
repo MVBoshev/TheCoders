@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 const int WIDTH = 20;
@@ -12,16 +13,16 @@ bool validMove(char maze[][WIDTH], int newX, int newY);
 bool move(char maze[][WIDTH], int& curX, int& curY, int newX, int newY);
 // These functions will return true or false if moving to a specified coordinate is valid
 
+
 void displayMenu()
 {
-	char a;
-	cout << "===================================================== \n";
-	cout << " \t\tMENU \t \n ";
-	cout << "===================================================== \n";
-	cout << "Press any character to continue to the game";
+	char startGameButton;
+	cout << "=====================================================\n";
+	cout << " \t\tMENU \t \n";
+	cout << "=====================================================\n";
+	cout << "Press any button to continue to the game";
 	cout << endl;
-	cin >> a;
-
+	startGameButton = _getch();
 }
 
 bool validMove(char maze[][WIDTH], int newX, int newY)
@@ -37,7 +38,7 @@ bool validMove(char maze[][WIDTH], int newX, int newY)
 
 	}
 	// Checks if we hit a wall
-	if (maze[newY][newX] == '#')
+	if (maze[newY][newX] == char(219))
 	{
 		return false;
 	}
@@ -45,8 +46,8 @@ bool validMove(char maze[][WIDTH], int newX, int newY)
 }
 // Make the move on the maze to move to a new coordinate
 // curX and curY are passed by reference so they are changed to
-// the new coordinates. The move coordinates are valid.
-// This returns true if we move on the exit and otherwise false.
+// the new coordinates. We assume the move coordinates are valid.
+// This returns true if we move onto the exit, false otherwise.
 
 bool move(char maze[][WIDTH], int& curX, int& curY, int newX, int newY)
 {
@@ -72,31 +73,38 @@ void printMaze(char maze[][WIDTH], int curx, int cury)
 			if ((j == curx) && (i == cury))
 			{
 				cout << player;
+				cout << maze[i][j];
 			}
+
+			else if (maze[i][j] == 'E') {
+				cout << maze[i][j];
+			}
+
 			else
 			{
-				cout << maze[i][j];
+				cout << maze[i][j] << maze[i][j];
 			}
 		}
 		cout << endl;
 	}
 }
 
-
-
 int main()
 {
+	displayMenu();
+
+	char Wallsymb = char(219);
 	char maze[HEIGHT][WIDTH] = {
-	 {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
-	 {'#',' ',' ',' ',' ',' ',' ',' ','#','#',' ',' ',' ',' ',' ',' ','#','#',' ','#'},
-	 {'#',' ','#',' ','#','#','#',' ',' ',' ',' ','#','#',' ','#',' ',' ',' ',' ','#'},
-	 {'#',' ','#',' ','#',' ','#',' ','#',' ','#','#',' ',' ',' ','#',' ','#','#','#'},
-	 {'#',' ',' ',' ',' ',' ',' ',' ','#',' ','#',' ',' ','#',' ','#',' ',' ',' ','#'},
-	 {'#','#',' ','#',' ','#','#','#','#',' ','#',' ','#','#',' ',' ',' ','#',' ','#'},
-	 {'#',' ',' ','#',' ',' ',' ',' ','#',' ','#',' ',' ',' ','#',' ','#','#',' ','#'},
-	 {'#',' ','#','#','#',' ','#',' ',' ',' ','#','#','#',' ',' ',' ',' ','#',' ','#'},
-	 {'#',' ',' ',' ',' ',' ','#',' ','#',' ',' ',' ',' ',' ','#','#',' ',' ',' ','E'},
-	 {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
+   {Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb},
+   {Wallsymb,' ',' ',' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',Wallsymb},
+   {Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,' ',' ',' ',' ',Wallsymb,Wallsymb,' ',Wallsymb,' ',' ',' ',' ',Wallsymb},
+   {Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb},
+   {Wallsymb,' ',' ',' ',' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb},
+   {Wallsymb,Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb},
+   {Wallsymb,' ',' ',Wallsymb,' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',Wallsymb},
+   {Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb,Wallsymb,Wallsymb,' ',' ',' ',' ',Wallsymb,' ',Wallsymb},
+   {Wallsymb,' ',' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',' ',' ','E'},
+   {Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb},
 	};
 
 	int x = 1, y = 1;
@@ -111,35 +119,34 @@ int main()
 		cout << "Use WASD to move." << endl;
 
 		char c;
-		cin >> c;
-		c = tolower(c);
+		c = _getch();
 
 		switch (c)
 		{
-		  case 'w':
+		case 'w':
 			if (validMove(maze, x, y - 1))
 			{
 				foundExit = move(maze, x, y, x, y - 1);
 			}
 			break;
-		  case 'a':
+		case 'a':
 			if (validMove(maze, x - 1, y))
 			{
 				foundExit = move(maze, x, y, x - 1, y);
 			}
 			break;
-		  case 's':
-			  if (validMove(maze, x, y + 1))
-			  {
-				  foundExit = move(maze, x, y, x, y + 1);
-			  }
-			  break;
-		  case 'd':
-			  if (validMove(maze, x + 1, y))
-			  {
-				  foundExit = move(maze, x, y, x + 1, y);
+		case 's':
+			if (validMove(maze, x, y + 1))
+			{
+				foundExit = move(maze, x, y, x, y + 1);
+			}
+			break;
+		case 'd':
+			if (validMove(maze, x + 1, y))
+			{
+				foundExit = move(maze, x, y, x + 1, y);
 
-			  }
+			}
 		}
 	}
 }
