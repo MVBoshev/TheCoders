@@ -44,6 +44,7 @@ bool validMove(char maze[][WIDTH], int newX, int newY)
 	}
 	return true;
 }
+
 // Make the move on the maze to move to a new coordinate
 // curX and curY are passed by reference so they are changed to
 // the new coordinates. We assume the move coordinates are valid.
@@ -75,8 +76,8 @@ void printMaze(char maze[][WIDTH], int curx, int cury)
 				cout << player;
 				cout << maze[i][j];
 			}
-
-			else if (maze[i][j] == 'E') {
+			else if (maze[i][j] == 'E')
+			{
 				cout << maze[i][j];
 			}
 
@@ -94,17 +95,20 @@ int main()
 	displayMenu();
 
 	char Wallsymb = char(219);
-	char maze[HEIGHT][WIDTH] = {
-   {Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb},
-   {Wallsymb,' ',' ',' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',Wallsymb},
-   {Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,' ',' ',' ',' ',Wallsymb,Wallsymb,' ',Wallsymb,' ',' ',' ',' ',Wallsymb},
-   {Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb},
-   {Wallsymb,' ',' ',' ',' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb},
-   {Wallsymb,Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb},
-   {Wallsymb,' ',' ',Wallsymb,' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',Wallsymb},
-   {Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb,Wallsymb,Wallsymb,' ',' ',' ',' ',Wallsymb,' ',Wallsymb},
-   {Wallsymb,' ',' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',' ',' ','E'},
-   {Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb},
+
+	char(*maze)[WIDTH] = new char[HEIGHT][WIDTH]
+	{
+
+  {Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb},
+  {Wallsymb,' ',' ',' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',Wallsymb},
+  {Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,' ',' ',' ',' ',Wallsymb,Wallsymb,' ',Wallsymb,' ',' ',' ',' ',Wallsymb},
+  {Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb},
+  {Wallsymb,' ',' ',' ',' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb},
+  {Wallsymb,Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,Wallsymb,' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb},
+  {Wallsymb,' ',' ',Wallsymb,' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb,' ',Wallsymb,Wallsymb,' ',Wallsymb},
+  {Wallsymb,' ',Wallsymb,Wallsymb,Wallsymb,' ',Wallsymb,' ',' ',' ',Wallsymb,Wallsymb,Wallsymb,' ',' ',' ',' ',Wallsymb,' ',Wallsymb},
+  {Wallsymb,' ',' ',' ',' ',' ',Wallsymb,' ',Wallsymb,' ',' ',' ',' ',' ',Wallsymb,Wallsymb,' ',' ',' ','E'},
+  {Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb,Wallsymb},
 	};
 
 	int x = 1, y = 1;
