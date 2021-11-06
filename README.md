@@ -4,9 +4,9 @@
 
 Участници      |  Имейли                      | Роли
 ---------------|------------------------------|---------------
-Петър Николов | PRN@codingburgas.bg   | Back end
-Марио Бошев | MVBoshev@codingburgas.bg| Scrum trainer
-Венилин Дончев | VDDonchev@codingburgas.bg    | QA developer
+Петър Николов | PRNikolov19@codingburgas.bg   | Back end
+Марио Бошев | MVBoshev19@codingburgas.bg| Scrum trainer
+Венилин Дончев | VDDonchev19@codingburgas.bg    | QA developer
 Кирил Димитров | KGDimitrov19@codingburgas.bg | Front end
 
 Functions | The usage of them
